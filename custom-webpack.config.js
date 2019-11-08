@@ -11,7 +11,7 @@ module.exports = (config, options) => {
   config.plugins.push(
     new webpack.DefinePlugin({
       config: JSON.stringify({
-        apiUrl: "https://easy-auction-server.herokuapp.com/",
+        apiUrl: "https://easy-auction-server.herokuapp.com",
       }),
     })
   );
