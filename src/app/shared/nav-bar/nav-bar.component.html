@@ -1,0 +1,64 @@
+<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
+
+<div class="row">
+  <div class="col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a
+        [routerLink]="['/home']"
+        routerLinkActive="router-link-active"
+        class="navbar-brand"
+        ><strong><span style="color:#ec2225">Quick</span>Auction</strong></a
+      >
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a
+            class="nav-item nav-link"
+            routerLinkActive="active"
+            routerLink="/home"
+            >Home<span class="sr-only">(current)</span></a
+          >
+          <a
+          *ngIf="(currentUser | async)==null"
+            class="nav-item nav-link "
+            routerLinkActive="active"
+            routerLink="/account/signin"
+            >Login<span class="sr-only"></span
+          ></a>
+          <a
+          *ngIf="(currentUser | async)==null"
+            class="nav-item nav-link "
+            routerLinkActive="active"
+            routerLink="/account/signup"
+            >Register<span class="sr-only"></span
+          ></a>
+          <a
+            class="nav-item nav-link "
+            routerLinkActive="active"
+            routerLink="/customer-care"
+            >Customer Care<span class="sr-only"></span
+          ></a>
+          <a
+            *ngIf="currentUser | async"
+            class="nav-item nav-link"
+            routerLinkActive="active"
+            routerLink="/admin"
+            >Admin<span class="sr-only"></span
+          ></a>
+        </div>
+      </div>
+      <app-header-login></app-header-login>
+    </nav>
+  </div>
+</div>

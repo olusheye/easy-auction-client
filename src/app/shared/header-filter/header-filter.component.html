@@ -1,0 +1,55 @@
+<div class="row filter white-background">
+  <div class="col-md-2">
+    <div class="dropdown filter-dropdown ">
+      <a
+        class="btn btn-default departmentFilter"
+        data-toggle="dropdown"
+        [routerLink]="['/home']"
+        routerLinkActive="router-link-active"
+        >All Departments <span class="caret"></span
+      ></a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li class="font" *ngFor="let item of productCategories">
+          <a
+            [routerLink]="['/product-by-categories']"
+            [queryParams]="{ categoryId: item.CategoryId }"
+            routerLinkActive="router-link-active"
+            >{{ item.CategoryName }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+    <form [formGroup]="form" (ngSubmit)="onFilterSubmit()" class="row">
+      <div class="col-md-4">
+        <input
+          type="text"
+          formControlName="product"
+          class="form-control"
+          placeholder="Search for products..."
+        />
+      </div>
+
+      <div class="col-md-4">
+        <select
+          class="form-control"
+          formControlName="categoryId"
+          (onchange)="onCategoryChange($event)"
+        >
+          <option value="" disabled>All Categories</option>
+          <option
+            [ngValue]="item.CategoryId"
+            *ngFor="let item of productCategories"
+            >{{item.CategoryName}}</option
+          >
+        </select>
+      </div>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary searchButton">
+          <span id="searchLabel">Search</span>
+        </button>
+      </div>
+
+    </form>
+
+  </div>

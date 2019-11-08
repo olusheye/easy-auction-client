@@ -1,0 +1,153 @@
+<span *ngIf="isLoading">Loading...</span>
+<div class="row" *ngIf="!isLoading">
+  <div class="col-md-8 col-md-offset-2 regBox">
+    <button
+      class="btn btn-xs btn-outline-primary m-1"
+      (click)="openAddCategoryModal(content2)"
+    >
+      Create Category
+    </button>
+    <table class="table">
+      <tr>
+        <th>
+          Category Name
+        </th>
+        <th>
+          Category Description
+        </th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let item of categories">
+        <td>
+          {{ item.description }}
+        </td>
+        <td>
+          {{ item.productCategoryName }}
+        </td>
+        <td>
+          <button
+            class="btn btn-xs btn-outline-primary"
+            (click)="openModal(content, item)"
+          >
+            View
+          </button>
+        </td>
+      </tr>
+    </table>
+
+    <a
+      [routerLink]="['/admin/add-category-category']"
+      routerLinkActive="router-link-active"
+      >Create</a
+    >
+  </div>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Category Details</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table">
+      <thead>
+        <th>Category Name</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+        <td>{{ modalContent.productCategoryName }}</td>
+        <td>{{ modalContent.description }}</td>
+      </tbody>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeModal()">
+      Save
+    </button>
+  </div>
+</ng-template>
+<ng-template #content2 let-modal2>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Product Category</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="closeModal()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+      <span *ngIf="isLoading">Loading...</span>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 regBox">
+          <div class="form-horizontal">
+            <!-- <h4 class="col-md-offset-3">
+              <strong>New Product Category</strong>
+            </h4>
+            <hr /> -->
+            <div class="form-group">
+              <label class="control-label col-md-2 regLabel">
+                Category Name
+              </label>
+              <div class="col-md-8">
+                <input class="form-control" formControlName="categoryName" />
+                <div *ngIf="isSubmitted && f.categoryName.errors" class="">
+                  <div *ngIf="f.categoryName.errors.required">
+                    category name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-md-2 regLabel">
+                Description</label
+              >
+              <div class="col-md-8">
+                <input class="form-control" formControlName="description" />
+                <div *ngIf="isSubmitted && f.description.errors" class="">
+                  <div *ngIf="f.description.errors.required">
+                    category description is required
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-offset-2 col-md-8">
+                <!-- btnStd pull-right" -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" [disabled]="isLoading">
+        AddCategory
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="closeModal()"
+      >
+        Save
+      </button>
+      <img
+        *ngIf="submitted && form.valid"
+        class="pl-3"
+        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+      />
+    </div>
+  </form>
+</ng-template>

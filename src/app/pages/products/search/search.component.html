@@ -1,0 +1,143 @@
+<div class=" col-md-offset-2">
+  <div class="wrapper">
+    <div class="row" *ngIf="products.length > 0">
+      <div style="margin-left:20px;">
+        <h4 style="font-size: 210%;color:#337ab7">
+          <strong>{{ categoryName }}</strong>
+        </h4>
+        <h5>{{ products.length }}item(s) found.Page 1 of 1</h5>
+        <a href="#"><h5 style="color:#337ab7">Next 5 Pages</h5></a>
+      </div>
+      <h5 class="catSubtitle" style="margin-left:150px">
+        Don't want to scroll through pages? Click
+        <a
+          [routerLink]="['/']"
+          routerLinkActive="router-link-active"
+          class="catSubtitleLink"
+        >
+          here
+        </a>
+        for a condensed view
+      </h5>
+    </div>
+    <div class="row ">
+      <div class="row" *ngIf="!(products.length > 0); else resultFound">
+        <div class="alertWrapper">
+          <span class="alertMsg">No results found</span>
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true" class="alertButton">&times;</span>
+            <span class="sr-only">
+              Close
+            </span>
+          </button>
+        </div>
+      </div>
+      <ng-template #resultFound>
+        <div class="col-md-9 ">
+          <div
+            class="srBox srBoxAUC"
+            style="margin-right: -50px;"
+            *ngFor="let item of products"
+          >
+            <table class="outer">
+              <tbody>
+                <tr>
+                  <td class="ocol1" rowspan="2">
+                    <!-- thumbnail and offerId -->
+                    <div class="thumbnail thumbnailAUC ">
+                      <a
+                        [routerLink]="['/product-details', item._id]"
+                        routerLinkActive="router-link-active"
+                      >
+                        <img
+                          src="{{ item.imgUrl }}"
+                          width="160"
+                          height="120"
+                          alt=""
+                        />
+                      </a>
+                    </div>
+                    <div class="itemNum">Item no:{{ item._id }}</div>
+                  </td>
+                  <td>
+                    <div class="title">
+                      <a
+                        [routerLink]="['/product-details:item._id']"
+                        routerLinkActive="router-link-active"
+                      >
+                        {{ item.productName }}
+                      </a>
+                    </div>
+                    <div class="subTitle"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ocol2">
+                    <table class="inner">
+                      <tbody>
+                        <tr>
+                          <td class="inner2">
+                            <em>Qty Available:</em> Description<br />
+                            <em>End Date: </em>BidEndTime<br />
+
+                            <em>Suggested Retail:</em>&#8358; Price Range Max<br />
+                          </td>
+                          <td class="inner3 inner3AUC">
+                            Minimum Bid: &#8358; Price Range Min
+                            <a
+                              [routerLink]="[
+                                '/product-details',
+                                item._id
+                              ]"
+                              routerLinkActive="router-link-active"
+                            >
+                              {{ item.productName }}
+                              <img
+                                src="assets/img/more_info.gif"
+                                height="71"
+                                width="173"
+                                border="0"
+                                alt="More information"
+                              />
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-1" style="margin-left:23px;">
+          <div class=" srcontainer">
+            <h6 class="srheader">Categories:</h6>
+            <label class="categoryLabel">{{ categoryName }}</label>
+            <a href="#" class=""><h6>Male</h6> </a>
+            <a href="#" class=""><h6>Female</h6> </a>
+          </div>
+          <div class=" srcontainer">
+            <h6 class="srheader">Refine Results:</h6>
+            <label style="margin-left:30px">Offer Type</label>
+            <div style="margin-left:15px">
+              <select>
+                <option>All</option>
+                <option>Regular</option>
+                <option>Rare Products</option>
+              </select>
+            </div>
+
+            <button class="btnStd">Go!</button>
+          </div>
+          <div class=" srcontainer">
+            <h6 class="srheader">SortBy:</h6>
+            <a href="#" class="fontColor"><h6>Title</h6> </a>
+            <a href="#" class="fontColor"><h6>Lowest Bid</h6> </a>
+            <a href="#" class=""><h6>Closing Date</h6> </a>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

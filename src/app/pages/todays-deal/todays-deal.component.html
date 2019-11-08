@@ -1,0 +1,35 @@
+<div class="dealsOfTheDay container">
+  <div style="height: 3px;">
+    <h4 style="color:#333333"><strong>Deal </strong>of the day</h4>
+  </div>
+
+  <hr class="hr2" style="border-top: 2px solid #eeeeee;" />
+  <div>
+    <div *ngIf="todaysDeal; else no_product_found">
+      <span style="color:#0063D2;font-size: 20px;font-weight: bold;">
+        &#8358;{{ todaysDeal.price }}
+      </span>
+      <span
+        style="color:#aaaaaa;font-size:15px;position: absolute;margin-top: -8px;margin-left: 15px;"
+      >
+        <!-- <strike> &#8358;{{price}}}</strike> -->
+      </span>
+      <a
+        [routerLink]="['/product-details']"
+        [queryParams]="{ productId: 1 }"
+      >
+        <h5 style="color:black">
+          <strong>{{ todaysDeal.name }}</strong>
+        </h5>
+        <img [src]="todaysDeal.image" style="width:150px;height:120px" />
+        <div>
+          <h3 class="buyNow" style="float:right"><strong>Buy Now</strong></h3>
+        </div>
+        {{ todaysDeal.description }}
+      </a>
+    </div>
+    <ng-template #no_product_found>
+      <span>No Product to Display</span>
+    </ng-template>
+  </div>
+</div>

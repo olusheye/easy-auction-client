@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "afterDelay",
+    "editor.formatOnType": true,
+    "eslint.run": "onSave",
+    "git.ignoreLimitWarning": true
+}

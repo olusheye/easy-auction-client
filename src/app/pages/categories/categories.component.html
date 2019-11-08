@@ -1,0 +1,25 @@
+<p>Categories</p>
+<div class="row">
+  <ng-container *ngFor="let category of categories">
+    <div class="row" *ngIf="counter != 0 && counter % 5 == 0"></div>
+    <div class="col-md-3">
+      <a
+        [routerLink]="[
+          '/product-search',
+          'productName',
+          'None',
+          'categoryId',
+          category.categoryName
+        ]"
+        routerLinkActive="router-link-active"
+      >
+        <div><img [src]="category.categoryImage" class="image" /></div>
+        <div
+          style="font-size: 18px;font-weight: bold;color:#337ab7;margin-left:60px"
+        >
+          {{ category.categoryName }}
+        </div>
+      </a>
+    </div>
+  </ng-container>
+</div>

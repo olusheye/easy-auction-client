@@ -1,0 +1,14 @@
+<div *ngIf="isUserAuthenticated">
+  <ul class="nav navbar-nav navbar-right">
+    <li class="font">
+      <a href="">
+        <i class="icon-user"></i
+        ><span class="fontUname"
+          >Hello {{ (currentUser | async).username }}!</span
+        ></a
+      >
+    </li>
+    <li class="font"><button class="" (click)="onLogOff()">Log Off</button></li>
+  </ul>
+</div>
+

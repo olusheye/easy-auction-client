@@ -1,0 +1,103 @@
+<div class="container wrapper">
+  <div class="row" *ngIf="msg !== null">
+    <div class="alertWrapper">
+      <span class="alertMsg">{{ msg }}</span>
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true" class="alertButton">&times;</span>
+        <span class="sr-only">
+          Close
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row" style="background-color: white;" *ngIf="product !== null">
+    <div class="col-md-8">
+      <img [src]="product.imgUrl" id="image" />
+    </div>
+    <div class="col-md-4">
+      <div>
+        <span class="bidHeader1">Bid</span> <span class="bidHeader2">Now</span>
+      </div>
+      <div><span class="auctionDesc"> Auction Item Description</span></div>
+
+      <table class="tableBorder">
+        <tr class="tableBorder">
+          <td class="bidtableCol alignRight">Item Number</td>
+          <td class="alignLeft">{{ product._id }}</td>
+        </tr>
+        <tr class="tableBorder">
+          <td class="bidtableCol alignRight">Market Price</td>
+          <td class="alignLeft">&#8358;{{ product.priceRangeMin }}</td>
+        </tr>
+        <tr>
+          <td class="bidtableCol alignRight">Our Price</td>
+          <td class="alignLeft">&#8358;{{ product.priceRangeMax }}</td>
+        </tr>
+        <tr>
+          <td class="bidtableCol alignRight">You Save</td>
+          <td class="alignLeft">
+            &#8358;{{ product.priceRangeMax - product.priceRangeMin }}
+          </td>
+        </tr>
+        <tr>
+          <td class="bidtableCol alignRight">Current Bid</td>
+          <td class="alignLeft">&#8358;{{ product.currentBid }}</td>
+        </tr>
+
+        <tr>
+          <td class="bidtableCol alignRight">End Date</td>
+          <td class="alignLeft">{{ product.bidEndTime }}</td>
+        </tr>
+      </table>
+
+      <div style="border: 1px solid #7f8271;margin-right: 35px;">
+        <div class="bidTimerLabel">Bid ends in</div>
+        <div class="bidTimer" id="demo">{{$counter|async}}</div>
+        <div>
+          <form [formGroup]="form" (ngSubmit)="placeBid()">
+            <div>
+              <div class="" style="margin-right: 35px;margin-left: 30px;">
+                <div class="input-group">
+                  <span class="input-group-addon">&#8358;</span>
+                  <input
+                    type="text"
+                    formControlName="currentBid"
+                    class="form-control"
+                    placeholder=""
+                  />
+                </div>
+              </div>
+              <div class="col-md-offset-3">
+                <button type="submit" class="btnStd">Bid</button>
+              </div>
+              <input
+                formControlName="_id"
+                value="{{ product._id }}"
+                hidden
+              />
+            </div>
+          </form>
+        </div>
+        <div>
+          <div class="" *ngIf="true; else notBidHolder">
+            <div class="bidTimerLabel" style="text-align:center">
+              You are the Current Bid Holder
+            </div>
+          </div>
+          <ng-template #notBidHolder>
+            <div class="">
+              <div class="bidTimerLabel">Not the Current Bid Holder</div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="product !== null">
+    <div class="regLabel">Name:{{ product.productName }}</div>
+    <div class="regLabel">Description: {{ product.description }}</div>
+  </div>
+</div>
+
+

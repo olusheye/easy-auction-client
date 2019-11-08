@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <app-nav-bar></app-nav-bar>
+  <app-header-filter></app-header-filter>
+  <div class="row">
+    <div class="col-md-2 adminSidebar">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            class="btn btn-outline-primary"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Manage Users and Roles
+          </button>
+          <div
+            ngbDropdownMenu
+            aria-labelledby="dropdownBasic1"
+            class="dropdown-menu"
+          >
+            <a
+              disabled
+              ngbDropdownItem
+              [routerLink]="['/admin/products']"
+              routerLinkActive="router-link-active"
+              >Add User To Role</a
+            >
+            <a
+              disabled
+              ngbDropdownItem
+              [routerLink]="['/admin/products']"
+              routerLinkActive="router-link-active"
+              >Create New Role</a
+            >
+            <a
+              disabled
+              ngbDropdownItem
+              [routerLink]="['/admin/products']"
+              routerLinkActive="router-link-active"
+              >Get All Roles</a
+            >
+            <a
+              disabled
+              ngbDropdownItem
+              [routerLink]="['/admin/products']"
+              routerLinkActive="router-link-active"
+              >Remove User From Role</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            class="btn btn-outline-primary"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Manage Auctions
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a ngbDropdownItem>Create Auctions</a>
+            <a ngbDropdownItem> Show All Auctions</a>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button
+            class="btn btn-outline-primary"
+            id="dropdownBasic1"
+            ngbDropdownToggle
+          >
+            Manage Products
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <a
+              ngbDropdownItem
+              [routerLink]="['/admin/products']"
+              routerLinkActive="router-link-active"
+            >
+              Products</a
+            >
+            <a
+              ngbDropdownItem
+              [routerLink]="['/admin/product-categories']"
+              routerLinkActive="router-link-active"
+            >
+              Product Categories</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

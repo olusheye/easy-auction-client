@@ -1,0 +1,82 @@
+.categoryLabel {
+  font-weight: bold;
+  background-color: #c4d0dc;
+  color: #073f79;
+  margin-bottom: -5px;
+}
+.catSubtitle {
+  font-size: 12px;
+  font-weight: bold;
+  color: #073f79;
+}
+.catSubtitleLink {
+  font-size: 12px;
+  font-weight: bold;
+  color: #337ab7;
+}
+.btnStd {
+  background-color: #073f79;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  border-style: outset;
+  cursor: pointer;
+  height: 24px;
+  text-decoration: none;
+  padding: 0px 1em 0px 1em;
+  overflow: visible;
+  margin-top: 10px;
+  margin-left: 30px;
+}
+.wrapper {
+  background-color: white;
+  width: 82%;
+}
+
+.content {
+  height: 100px;
+}
+.fontColor {
+  color: #337ab7;
+}
+
+.srcontainer {
+  width: 138px;
+  border: 2px solid #dddddd;
+  text-align: left;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+}
+
+.srheader {
+  color: #860926;
+  font-weight: bold;
+  font-size: 13px;
+  font-family: Arial, Verdana;
+  text-align: center;
+  border-bottom: 1px dashed #dddddd;
+  padding: 2px;
+}
+
+.alertWrapper {
+  background-color: #f2dede;
+  height: 50px;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin-left: 34px;
+  margin-right: 34px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.alertMsg {
+  font-size: larger;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #ab4442;
+}
+
+.alertButton {
+  background-color: #fcf8e3;
+}

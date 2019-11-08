@@ -1,0 +1,95 @@
+/* .font {
+  font-size: 16px;
+  font-weight: 400;
+  color: #555;
+}
+
+a {
+  font-size: 16px;
+  color: #555;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+li {
+  font-family: "Open Sans";
+}
+
+.navbar-brand {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.navbar-default .navbar-brand {
+  color: #3b55a5;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #444444;
+}
+@media only screen and (max-width: 992px) {
+  .filter {
+    display: none;
+  }
+}
+
+.searchButton {
+  background-color: #275e8e;
+}
+
+.filter-dropdown {
+  margin-left: 50px;
+}
+
+.filter-dropdown > a {
+  border-color: #fcfcfc;
+}
+
+.filter {
+  margin-top: -22px;
+  height: 50px;
+  padding-top: 10px;
+}
+
+.font {
+  font-size: 16px;
+  font-weight: 400;
+  color: #555;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  font-family: "Open Sans";
+}
+
+a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #555;
+}
+
+.white-background {
+  background-color: #fcfcfc;
+}
+
+.form-control {
+  width: 112%;
+}
+
+.departmentFilter {
+  margin-top: -10px;
+  height: 49px;
+  padding-top: 13px;
+  border-radius: 0px;
+} */
