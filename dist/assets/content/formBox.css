@@ -1,0 +1,34 @@
+﻿.regBox {
+    margin-top: 25px;
+    border: 2px solid #7688bf;
+    min-height: 20px;
+    background-color: #e8e8e8;
+    border-radius: 3px;
+}
+
+.regLabel {
+    font-family: "Open Sans";
+}
+
+.regButton {
+    font-family: "Open Sans";
+    float: right;
+    background-color: #9bb1ef;
+    color: #3b55a5;
+}
+
+.btnStd {
+    border-radius: 0px;
+    font-family: "Open Sans";
+    background-color: #073f79;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-style: outset;
+    cursor: pointer;
+    height: 30px;
+    text-decoration: none;
+    padding: 0px 1em 0px 1em;
+    overflow: visible;
+}
+
